@@ -1,0 +1,144 @@
+/*
+ * main.c
+ *
+ *  Created on: 7 мая 2019 г.
+ *      Author: Anna
+ */
+
+#include <stdio.h>
+
+#include <locale.h>
+#include <stdlib.h>
+
+
+
+int main(void)
+{
+  int *vector_1;
+  int *vector_2;
+  char operation_type = 0;
+  float *vector_result;
+  int size = 0;
+  int i = 0;
+
+  setlocale(LC_ALL, "Russian");
+
+  do
+  {
+    puts("Введите размер векторов (не больше 10):");
+    scanf("%i", &size);
+
+    if (size <= 10)
+    {
+      vector_1 = calloc(size, sizeof(int));
+      puts("Введите координаты 1 вектора");
+      for (i = 0; i < size; i++) {
+        printf("vector_1[%i]=", i);
+        scanf("%i", &vector_1[i]);
+      }
+
+      puts("Введите операцию");
+      puts("Доступные варианты: +, -, *, / или 'q' - выход ");
+      scanf(" %c", &operation_type);
+
+      switch (operation_type)
+      {
+        case '+':
+          vector_2 = calloc(size, sizeof(int));
+          puts("Введите координаты 2 вектора");
+          for (i = 0; i < size; i++) {
+            printf("vector_2[%i]=", i);
+            scanf("%i", &vector_2[i]);
+          }
+
+          vector_result = calloc(size, sizeof(float));
+
+          for (i = 0; i < size; i++) {
+            vector_result[i] = vector_1[i] + vector_2[i];
+          }
+
+          puts("Результат:");
+          for (i = 0; i < size; i++) {
+            printf( "vector_result[%i] = %f \n", i, vector_result[i]);
+          }
+          break;
+        case '-':
+          vector_2 = calloc(size, sizeof(int));
+          puts("Введите координаты 2 вектора");
+          for (i = 0; i < size; i++) {
+            printf("vector_2[%i]=", i);
+            scanf("%i", &vector_2[i]);
+          }
+
+          vector_result = calloc(size, sizeof(float));
+
+          for (i = 0; i < size; i++) {
+            vector_result[i] = vector_1[i] - vector_2[i];
+          }
+
+          puts("Результат:");
+          for (i = 0; i < size; i++) {
+            printf( "vector_result[%i] = %f \n", i, vector_result[i]);
+          }
+          break;
+        case '*':
+          vector_2 = calloc(size, sizeof(int));
+          puts("Введите координаты 2 вектора");
+          for (i = 0; i < size; i++) {
+            printf("vector_2[%i]=", i);
+            scanf("%i", &vector_2[i]);
+          }
+
+          vector_result = calloc(size, sizeof(float));
+
+          for (i = 0; i < size; i++) {
+            vector_result[i] = vector_1[i] * vector_2[i];
+          }
+
+          puts("Результат:");
+          for (i = 0; i < size; i++) {
+            printf( "vector_result[%i] = %f \n", i, vector_result[i]);
+          }
+          break;
+        case '/':
+          vector_2 = calloc(size, sizeof(int));
+          puts("Введите координаты 2 вектора");
+          for (i = 0; i < size; i++) {
+            printf("vector_2[%i]=", i);
+            scanf("%i", &vector_2[i]);
+          }
+
+          vector_result = calloc(size, sizeof(float));
+
+          for (i = 0; i < size; i++) {
+            vector_result[i] = vector_1[i] / vector_2[i];
+          }
+
+          puts("Результат:");
+          for (i = 0; i < size; i++) {
+            printf( "vector_result[%i] = %f \n", i, vector_result[i]);
+          }
+          break;
+        case 'q':
+          puts("Выход из программы. До свидания!");
+          break;
+        default:
+          puts("Введен недопустимый символ операции");
+          puts("Попробуйте снова");
+          break;
+      }
+    }
+    else
+    {
+      puts("Слишком большой размер вектора. Попробуйте снова...");
+    }
+  }
+  while (operation_type != 'q');
+
+  // free - освобождает память, которую выделили, используя calloc
+  free(vector_1);
+  free(vector_2);
+  free(vector_result);
+
+  puts("Завершаем выполнение...");
+}
