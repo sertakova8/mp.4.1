@@ -1,0 +1,95 @@
+*
+ * main.c
+ *
+ *  Created on: 7 мая 2019 г.
+ *      Author: Anna
+ */
+
+#include <stdio.h>
+
+#include <locale.h>
+
+
+int main(void)
+{
+  int number_1;
+  int number_2;
+  char operation_type;
+  float result;
+  int i;
+
+  setlocale(LC_ALL, "Russian");
+
+  do
+  {
+    puts("Введите первое число:");
+    scanf("%i", &number_1);
+    puts("Введите операцию");
+    puts("Доступные варианты: +, -, *, /, ^, ! или 'q' - выход ");
+    scanf(" %c", &operation_type);
+
+    switch (operation_type)
+    {
+      case '+':
+        puts("Введите второе число:");
+        scanf("%i", &number_2);
+        result = number_1 + number_2;
+        printf("Результат: %i + %i = %f \n", number_1, number_2, result);
+        break;
+      case '-':
+        puts("Введите второе число:");
+        scanf("%i", &number_2);
+        result = number_1 - number_2;
+        printf("Результат: %i - %i = %f \n", number_1, number_2, result);
+        break;
+      case '*':
+        puts("Введите второе число:");
+        scanf("%i", &number_2);
+        result = number_1 * number_2;
+        printf("Результат: %i * %i = %f \n", number_1, number_2, result);
+        break;
+      case '/':
+        puts("Введите второе число:");
+        scanf("%i", &number_2);
+        result = number_1 / number_2;
+        printf("Результат: %i / %i = %f \n", number_1, number_2, result);
+        break;
+      case '^':
+        puts("Введите второе число:");
+        scanf("%i", &number_2);
+        result = 1;
+
+        for (i = 0; i < number_2; i++)
+        {
+          result = result * number_1;
+        }
+        printf("Результат: %i ^ %i = %f \n", number_1, number_2, result);
+        break;
+      case '!':
+        if (number_1 == 0) // если number == 0, то факториал считать не нужно, ответ 1
+        {
+          result = 1;
+        }
+        else // если number != 0
+        {
+          result = 1;
+          for (i = 1; i <= number_1; i++)
+          {
+            result = result * i;
+          }
+        }
+        printf("Результат: %i! = %f \n", number_1, result);
+        break;
+      case 'q':
+        puts("Выход из программы. До свидания!");
+        break;
+      default:
+        puts("Введен недопустимый символ операции");
+        puts("Попробуйте снова");
+        break;
+    }
+  }
+  while (operation_type != 'q');
+
+  puts("Завершаем выполнение...");
+}
