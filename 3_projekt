@@ -1,0 +1,365 @@
+/*
+ * main.c
+ *
+ *  Created on: 19 мая 2019 г.
+ *      Author: Anna
+*/
+
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  char exit = 0;
+  char operation_type = 0;
+  char data_type = 0;
+  int i = 0;
+
+  FILE *in_file;
+  FILE *out_file;
+  setlocale(LC_ALL, "Russian");
+
+  do
+  {
+    puts("Введите любой символ и нажмите Enter для выполнения операции с файлами или наберите 'q' для выхода");
+
+    scanf(" %c", &exit);
+    if (exit == 'q')
+    {
+      break;
+    }
+
+
+
+    in_file = fopen("input.txt", "r");
+    out_file = fopen("output.txt", "w");
+
+    fscanf(in_file, "%c", &operation_type);
+
+    fscanf(in_file, " %c", &data_type);
+
+    switch (data_type)
+
+    {
+      case 's':
+      {
+        int number_1;
+        int number_2;
+        float result;
+
+
+        fscanf(in_file, " %d", &number_1);
+        fscanf(in_file, " %d", &number_2);
+
+        switch (operation_type)
+        {
+          case '+':
+            result = number_1 + number_2;
+
+            fprintf(out_file, "результат: %d + %d = %f \n", number_1, number_2,
+                    result);
+            break;
+          case '-':
+            result = number_1 - number_2;
+            fprintf(out_file, "результат: %d - %d = %f \n", number_1, number_2,
+                    result);
+            break;
+          case '*':
+            result = number_1 * number_2;
+            fprintf(out_file, "результат: %d * %d = %f \n", number_1, number_2,
+                    result);
+            break;
+          case '/':
+            result = number_1 / number_2;
+            fprintf(out_file, "результат: %d / %d = %f \n", number_1, number_2,
+                    result);
+            break;
+          case '^':
+            result = 1;
+
+            for (i = 0; i < number_2; i++)
+            {
+              result = result * number_1;
+            }
+            fprintf(out_file, "результат: %d ^ %d = %f \n", number_1, number_2,
+                    result);
+            break;
+          case '!':
+            if (number_1 == 0)
+            {
+              result = 1;
+            }
+            else // если number != 0
+            {
+              result = 1;
+              for (i = 1; i <= number_1; i++)
+              {
+                result = result * i;
+              }
+            }
+            fprintf(out_file, "результат: %d! = %f \n", number_1, result);
+            break;
+          default:
+            puts(
+                "Ошибка - введен недопустимый символ операции. Исправте файл и попробуйте снова");
+            break;
+        }
+        break;
+      }
+      case 'v':
+      {
+        int *vector_1;
+        int *vector_2;
+        float *vector_result;
+        int size = 0;
+
+        fscanf(in_file, " %d", &size);
+
+
+        vector_1 = calloc(size, sizeof(int)); // calloc выделяет память для вектора. size - количество элементов, sizeof(int) - размер одного элемента
+        vector_2 = calloc(size, sizeof(int));
+        vector_result = calloc(size, sizeof(float));
+
+
+        for (i = 0; i < size; i++)
+        {
+          fscanf(in_file, " %d", &vector_1[i]);
+        }
+
+
+        for (i = 0; i < size; i++)
+        {
+          fscanf(in_file, " %d", &vector_2[i]);
+        }
+
+
+        switch (operation_type)
+        {
+          case '+':
+
+            for (i = 0; i < size; i++)
+            {
+              vector_result[i] = vector_1[i] + vector_2[i];
+            }
+
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%d ", vector_1[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%d)", vector_1[i]);
+              }
+            }
+
+            fprintf(out_file, " + ");
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%d ", vector_2[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%d)", vector_2[i]);
+              }
+            }
+
+            fprintf(out_file, " = ");
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%.2f ", vector_result[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%.2f)", vector_result[i]);
+              }
+            }
+            break;
+          case '-':
+
+            for (i = 0; i < size; i++)
+            {
+              vector_result[i] = vector_1[i] - vector_2[i];
+            }
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%d ", vector_1[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%d)", vector_1[i]);
+              }
+            }
+
+            fprintf(out_file, " - ");
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%d ", vector_2[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%d)", vector_2[i]);
+              }
+            }
+
+            fprintf(out_file, " = ");
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%.2f ", vector_result[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%.2f)", vector_result[i]);
+              }
+            }
+            break;
+          case '*':
+
+            for (i = 0; i < size; i++)
+            {
+              vector_result[i] = vector_1[i] * vector_2[i];
+            }
+
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%d ", vector_1[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%d)", vector_1[i]);
+              }
+            }
+
+            fprintf(out_file, " * ");
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%d ", vector_2[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%d)", vector_2[i]);
+              }
+            }
+
+            fprintf(out_file, " = ");
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%.2f ", vector_result[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%.2f)", vector_result[i]);
+              }
+            }
+            break;
+          case '/':
+
+            for (i = 0; i < size; i++)
+            {
+              vector_result[i] = vector_1[i] / vector_2[i];
+            }
+
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%d ", vector_1[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%d)", vector_1[i]);
+              }
+            }
+
+            fprintf(out_file, " / ");
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%d ", vector_2[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%d)", vector_2[i]);
+              }
+            }
+
+            fprintf(out_file, " = ");
+
+            fprintf(out_file, "(");
+            for (i = 0; i < size; i++)
+            {
+              if (i != size - 1)
+              {
+                fprintf(out_file, "%.2f ", vector_result[i]);
+              }
+              else
+              {
+                fprintf(out_file, "%.2f)", vector_result[i]);
+              }
+            }
+            break;
+          default:
+            puts(
+                "Ошибка - введен недопустимый символ операции. Исправте файл и попробуйте снова");
+            break;
+        }
+        // free - освобождает память, которую выделили, используя calloc
+        free(vector_1);
+        free(vector_2);
+        free(vector_result);
+        break;
+      }
+      default:
+        puts("Ошибка - неправильно введен тип данных в файле");
+        break;
+    }
+    fclose(in_file);
+    fclose(out_file);
+
+    puts("Операция завершена. Проверте файл output.txt в папке с программой");
+  }
+  while (exit != 'q');
+
+  puts("Завершаем выполнение...");
+}
