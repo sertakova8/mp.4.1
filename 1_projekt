@@ -1,9 +1,9 @@
-*
+/*
  * main.c
  *
  *  Created on: 7 мая 2019 г.
  *      Author: Anna
- */
+*/
 
 #include <stdio.h>
 
