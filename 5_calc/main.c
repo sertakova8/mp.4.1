@@ -6,7 +6,7 @@
 /*
  * main.c
  *
- *  Created on: 24 мая 2019 г.
+ *  Created on: 24 РјР°СЏ 2019 Рі.
  *      Author: anna
  */
 
@@ -161,13 +161,13 @@ void convert_vector_to_str_vector(int size, int *vector_1, int *vector_2,
                                   float *vector_result, char *vector_1_str,
                                   char *vector_2_str, char *vector_result_str)
 {
-  // выводим результат
+  // РІС‹РІРѕРґРёРј СЂРµР·СѓР»СЊС‚Р°С‚
   int cur_pos = 0;
   int i = 0;
   memset(vector_1_str, 0, 255);
   memset(vector_2_str, 0, 255);
   memset(vector_result_str, 0, 255);
-  // пишем значения 1 вектора через пробел
+  // РїРёС€РµРј Р·РЅР°С‡РµРЅРёСЏ 1 РІРµРєС‚РѕСЂР° С‡РµСЂРµР· РїСЂРѕР±РµР»
 
   for (i = 0; i < size; i++)
   {
@@ -217,13 +217,13 @@ int main(void)
   char line[128];
   LIST *in_current, *in_head;
   LIST *out_current, *out_head;
-  char operation_type = 0; // в эту переменную сохранится тип операции. 
-  char data_type = 0; // в эту переменную сохраним какой тип данных содержится в файле после того как его прочитаем
-  int i = 0; // переменная, которую будем использовать как счетчик, для операций
-  // начинаем работать с файлами
-  // сначало нужно объявить файловые дескрипторы для входного и выходного файла. 
+  char operation_type = 0; // РІ СЌС‚Сѓ РїРµСЂРµРјРµРЅРЅСѓСЋ СЃРѕС…СЂР°РЅРёС‚СЃСЏ С‚РёРї РѕРїРµСЂР°С†РёРё. 
+  char data_type = 0; // РІ СЌС‚Сѓ РїРµСЂРµРјРµРЅРЅСѓСЋ СЃРѕС…СЂР°РЅРёРј РєР°РєРѕР№ С‚РёРї РґР°РЅРЅС‹С… СЃРѕРґРµСЂР¶РёС‚СЃСЏ РІ С„Р°Р№Р»Рµ РїРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє РµРіРѕ РїСЂРѕС‡РёС‚Р°РµРј
+  int i = 0; // РїРµСЂРµРјРµРЅРЅР°СЏ, РєРѕС‚РѕСЂСѓСЋ Р±СѓРґРµРј РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєР°Рє СЃС‡РµС‚С‡РёРє, РґР»СЏ РѕРїРµСЂР°С†РёР№
+  // РЅР°С‡РёРЅР°РµРј СЂР°Р±РѕС‚Р°С‚СЊ СЃ С„Р°Р№Р»Р°РјРё
+  // СЃРЅР°С‡Р°Р»Рѕ РЅСѓР¶РЅРѕ РѕР±СЉСЏРІРёС‚СЊ С„Р°Р№Р»РѕРІС‹Рµ РґРµСЃРєСЂРёРїС‚РѕСЂС‹ РґР»СЏ РІС…РѕРґРЅРѕРіРѕ Рё РІС‹С…РѕРґРЅРѕРіРѕ С„Р°Р№Р»Р°. 
   FILE *in_file;
-  FILE *out_file; // дескриптор выходного файла (куда запишем результат)
+  FILE *out_file; // РґРµСЃРєСЂРёРїС‚РѕСЂ РІС‹С…РѕРґРЅРѕРіРѕ С„Р°Р№Р»Р° (РєСѓРґР° Р·Р°РїРёС€РµРј СЂРµР·СѓР»СЊС‚Р°С‚)
 
   setlocale(LC_ALL, "Russian"); 
 
@@ -264,23 +264,23 @@ int main(void)
     printf("data_type= %c\n", data_type);
 
     switch (data_type)
-    // теперь смотрим, какой же у нас тип данных в файле, который мы вычитали
+    // С‚РµРїРµСЂСЊ СЃРјРѕС‚СЂРёРј, РєР°РєРѕР№ Р¶Рµ Сѓ РЅР°СЃ С‚РёРї РґР°РЅРЅС‹С… РІ С„Р°Р№Р»Рµ, РєРѕС‚РѕСЂС‹Р№ РјС‹ РІС‹С‡РёС‚Р°Р»Рё
     {
-      case 's': // значит у нас обычные числа в файле
+      case 's': // Р·РЅР°С‡РёС‚ Сѓ РЅР°СЃ РѕР±С‹С‡РЅС‹Рµ С‡РёСЃР»Р° РІ С„Р°Р№Р»Рµ
       {
-        int number_1; // теперь говорим, что в нашей программе будет использоваться переменная number_1 типа int (integer, т.е. целое число. Целое число это 1,2,3,4,5..N)
-        int number_2; // в нашей программе будет переменная number_2
-        float result; // в эту переменную сохраним результат операции. Она типа float - десятичное ну или дробное число, например "2.342"
+        int number_1; // С‚РµРїРµСЂСЊ РіРѕРІРѕСЂРёРј, С‡С‚Рѕ РІ РЅР°С€РµР№ РїСЂРѕРіСЂР°РјРјРµ Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РїРµСЂРµРјРµРЅРЅР°СЏ number_1 С‚РёРїР° int (integer, С‚.Рµ. С†РµР»РѕРµ С‡РёСЃР»Рѕ. Р¦РµР»РѕРµ С‡РёСЃР»Рѕ СЌС‚Рѕ 1,2,3,4,5..N)
+        int number_2; // РІ РЅР°С€РµР№ РїСЂРѕРіСЂР°РјРјРµ Р±СѓРґРµС‚ РїРµСЂРµРјРµРЅРЅР°СЏ number_2
+        float result; // РІ СЌС‚Сѓ РїРµСЂРµРјРµРЅРЅСѓСЋ СЃРѕС…СЂР°РЅРёРј СЂРµР·СѓР»СЊС‚Р°С‚ РѕРїРµСЂР°С†РёРё. РћРЅР° С‚РёРїР° float - РґРµСЃСЏС‚РёС‡РЅРѕРµ РЅСѓ РёР»Рё РґСЂРѕР±РЅРѕРµ С‡РёСЃР»Рѕ, РЅР°РїСЂРёРјРµСЂ "2.342"
 
         sscanf(&in_current->task[0] + 4, "%d %d", &number_1, &number_2);
 
         switch (operation_type)
         {
           case '+':
-            result = number_1 + number_2; // складываем два числа и пишем в переменную result
-            // функция fprintf работает точно так же как функция printf, только выводит результат не в консоль, а в файл, поэтому в нее нужно передать дескриптор на файл, куда хотим записать информацию
+            result = number_1 + number_2; // СЃРєР»Р°РґС‹РІР°РµРј РґРІР° С‡РёСЃР»Р° Рё РїРёС€РµРј РІ РїРµСЂРµРјРµРЅРЅСѓСЋ result
+            // С„СѓРЅРєС†РёСЏ fprintf СЂР°Р±РѕС‚Р°РµС‚ С‚РѕС‡РЅРѕ С‚Р°Рє Р¶Рµ РєР°Рє С„СѓРЅРєС†РёСЏ printf, С‚РѕР»СЊРєРѕ РІС‹РІРѕРґРёС‚ СЂРµР·СѓР»СЊС‚Р°С‚ РЅРµ РІ РєРѕРЅСЃРѕР»СЊ, Р° РІ С„Р°Р№Р», РїРѕСЌС‚РѕРјСѓ РІ РЅРµРµ РЅСѓР¶РЅРѕ РїРµСЂРµРґР°С‚СЊ РґРµСЃРєСЂРёРїС‚РѕСЂ РЅР° С„Р°Р№Р», РєСѓРґР° С…РѕС‚РёРј Р·Р°РїРёСЃР°С‚СЊ РёРЅС„РѕСЂРјР°С†РёСЋ
             memset(line, 0, sizeof(line));
-            sprintf(line, "результат: %d + %d = %f \n", number_1, number_2,
+            sprintf(line, "СЂРµР·СѓР»СЊС‚Р°С‚: %d + %d = %f \n", number_1, number_2,
                     result);
             //add_to_list(out_head, out_current, line);
             out_node->task = strdup(line); //note : strdup is not standard function
@@ -298,7 +298,7 @@ int main(void)
           case '-':
             result = number_1 - number_2;
             memset(line, 0, sizeof(line));
-            sprintf(line, "результат: %d - %d = %f \n", number_1, number_2,
+            sprintf(line, "СЂРµР·СѓР»СЊС‚Р°С‚: %d - %d = %f \n", number_1, number_2,
                     result);
             //add_to_list(out_head, out_current, line);
             out_node->task = strdup(line); //note : strdup is not standard function
@@ -317,7 +317,7 @@ int main(void)
           case '*':
             result = number_1 * number_2;
             memset(line, 0, sizeof(line));
-            sprintf(line, "результат: %d * %d = %f \n", number_1, number_2,
+            sprintf(line, "СЂРµР·СѓР»СЊС‚Р°С‚: %d * %d = %f \n", number_1, number_2,
                     result);
             //add_to_list(out_head, out_current, line);
             out_node->task = strdup(line); //note : strdup is not standard function
@@ -336,7 +336,7 @@ int main(void)
           case '/':
             result = number_1 / number_2;
             memset(line, 0, sizeof(line));
-            sprintf(line, "результат: %d / %d = %f \n", number_1, number_2,
+            sprintf(line, "СЂРµР·СѓР»СЊС‚Р°С‚: %d / %d = %f \n", number_1, number_2,
                     result);
             //add_to_list(out_head, out_current, line);
             out_node->task = strdup(line); //note : strdup is not standard function
@@ -353,17 +353,17 @@ int main(void)
 
             break;
           case '^':
-            result = 1; // нужно задать значение result, чтобы не испортить первый шаг цикла
-            // как работает цикл for
-            // встаем на for. Делаем i == 0. Проверяем, если "i < number_2", то делаем i++ (т.е. увеличиваем i на 1) и идем на "{"
-            // выполняем внутренности цикла и доходим до "}"
-            // опять идем на for. Проверяем если "i < number_2", то делаем i++, если нет, то выходим из цикла
+            result = 1; // РЅСѓР¶РЅРѕ Р·Р°РґР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ result, С‡С‚РѕР±С‹ РЅРµ РёСЃРїРѕСЂС‚РёС‚СЊ РїРµСЂРІС‹Р№ С€Р°Рі С†РёРєР»Р°
+            // РєР°Рє СЂР°Р±РѕС‚Р°РµС‚ С†РёРєР» for
+            // РІСЃС‚Р°РµРј РЅР° for. Р”РµР»Р°РµРј i == 0. РџСЂРѕРІРµСЂСЏРµРј, РµСЃР»Рё "i < number_2", С‚Рѕ РґРµР»Р°РµРј i++ (С‚.Рµ. СѓРІРµР»РёС‡РёРІР°РµРј i РЅР° 1) Рё РёРґРµРј РЅР° "{"
+            // РІС‹РїРѕР»РЅСЏРµРј РІРЅСѓС‚СЂРµРЅРЅРѕСЃС‚Рё С†РёРєР»Р° Рё РґРѕС…РѕРґРёРј РґРѕ "}"
+            // РѕРїСЏС‚СЊ РёРґРµРј РЅР° for. РџСЂРѕРІРµСЂСЏРµРј РµСЃР»Рё "i < number_2", С‚Рѕ РґРµР»Р°РµРј i++, РµСЃР»Рё РЅРµС‚, С‚Рѕ РІС‹С…РѕРґРёРј РёР· С†РёРєР»Р°
             for (i = 0; i < number_2; i++)
             {
               result = result * number_1;
             }
             memset(line, 0, sizeof(line));
-            sprintf(line, "результат: %d ^ %d = %f \n", number_1, number_2,
+            sprintf(line, "СЂРµР·СѓР»СЊС‚Р°С‚: %d ^ %d = %f \n", number_1, number_2,
                     result);
             //add_to_list(out_head, out_current, line);
             out_node->task = strdup(line); //note : strdup is not standard function
@@ -379,11 +379,11 @@ int main(void)
             }
             break;
           case '!':
-            if (number_1 == 0) // если number == 0, то факториал считать не нужно, ответ 1
+            if (number_1 == 0) // РµСЃР»Рё number == 0, С‚Рѕ С„Р°РєС‚РѕСЂРёР°Р» СЃС‡РёС‚Р°С‚СЊ РЅРµ РЅСѓР¶РЅРѕ, РѕС‚РІРµС‚ 1
             {
               result = 1;
             }
-            else // если number != 0
+            else // РµСЃР»Рё number != 0
             {
               result = 1;
               for (i = 1; i <= number_1; i++)
@@ -392,7 +392,7 @@ int main(void)
               }
             }
             memset(line, 0, sizeof(line));
-            sprintf(line, "результат: %d! = %f \n", number_1, result);
+            sprintf(line, "СЂРµР·СѓР»СЊС‚Р°С‚: %d! = %f \n", number_1, result);
             //add_to_list(out_head, out_current, line);
             out_node->task = strdup(line); //note : strdup is not standard function
             out_node->next = NULL;
@@ -409,32 +409,32 @@ int main(void)
             break;
           default:
             puts(
-                "Ошибка - введен недопустимый символ операции. Исправте файл и попробуйте снова");
+                "РћС€РёР±РєР° - РІРІРµРґРµРЅ РЅРµРґРѕРїСѓСЃС‚РёРјС‹Р№ СЃРёРјРІРѕР» РѕРїРµСЂР°С†РёРё. РСЃРїСЂР°РІС‚Рµ С„Р°Р№Р» Рё РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°");
             break;
         }
-        break; // break относится к "case 's':", т.е. выходим из него
+        break; // break РѕС‚РЅРѕСЃРёС‚СЃСЏ Рє "case 's':", С‚.Рµ. РІС‹С…РѕРґРёРј РёР· РЅРµРіРѕ
       }
-      case 'v': // значит у нас векторы в файле
+      case 'v': // Р·РЅР°С‡РёС‚ Сѓ РЅР°СЃ РІРµРєС‚РѕСЂС‹ РІ С„Р°Р№Р»Рµ
       {
-        int *vector_1; // указатель на первый вектор. В этой переменной хранится адрес начала массива
-        int *vector_2; // указатель на второй вектор. В этой переменной хранится адрес начала массива
-        float *vector_result; // указатель на вектор, содержащий результат. В этой переменной хранится адрес начала массива
-        char *vector_1_str; // указатель на первый вектор. В этой переменной хранится адрес начала массива
-        char *vector_2_str; // указатель на второй вектор. В этой переменной хранится адрес начала массива
-        char *vector_result_str; // указатель на вектор, содержащий результат. В этой переменной хранится адрес начала массива
-        int size = 0; // размер всех векторов. Прочитаем его из файла
+        int *vector_1; // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРµСЂРІС‹Р№ РІРµРєС‚РѕСЂ. Р’ СЌС‚РѕР№ РїРµСЂРµРјРµРЅРЅРѕР№ С…СЂР°РЅРёС‚СЃСЏ Р°РґСЂРµСЃ РЅР°С‡Р°Р»Р° РјР°СЃСЃРёРІР°
+        int *vector_2; // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РІС‚РѕСЂРѕР№ РІРµРєС‚РѕСЂ. Р’ СЌС‚РѕР№ РїРµСЂРµРјРµРЅРЅРѕР№ С…СЂР°РЅРёС‚СЃСЏ Р°РґСЂРµСЃ РЅР°С‡Р°Р»Р° РјР°СЃСЃРёРІР°
+        float *vector_result; // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РІРµРєС‚РѕСЂ, СЃРѕРґРµСЂР¶Р°С‰РёР№ СЂРµР·СѓР»СЊС‚Р°С‚. Р’ СЌС‚РѕР№ РїРµСЂРµРјРµРЅРЅРѕР№ С…СЂР°РЅРёС‚СЃСЏ Р°РґСЂРµСЃ РЅР°С‡Р°Р»Р° РјР°СЃСЃРёРІР°
+        char *vector_1_str; // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРµСЂРІС‹Р№ РІРµРєС‚РѕСЂ. Р’ СЌС‚РѕР№ РїРµСЂРµРјРµРЅРЅРѕР№ С…СЂР°РЅРёС‚СЃСЏ Р°РґСЂРµСЃ РЅР°С‡Р°Р»Р° РјР°СЃСЃРёРІР°
+        char *vector_2_str; // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РІС‚РѕСЂРѕР№ РІРµРєС‚РѕСЂ. Р’ СЌС‚РѕР№ РїРµСЂРµРјРµРЅРЅРѕР№ С…СЂР°РЅРёС‚СЃСЏ Р°РґСЂРµСЃ РЅР°С‡Р°Р»Р° РјР°СЃСЃРёРІР°
+        char *vector_result_str; // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РІРµРєС‚РѕСЂ, СЃРѕРґРµСЂР¶Р°С‰РёР№ СЂРµР·СѓР»СЊС‚Р°С‚. Р’ СЌС‚РѕР№ РїРµСЂРµРјРµРЅРЅРѕР№ С…СЂР°РЅРёС‚СЃСЏ Р°РґСЂРµСЃ РЅР°С‡Р°Р»Р° РјР°СЃСЃРёРІР°
+        int size = 0; // СЂР°Р·РјРµСЂ РІСЃРµС… РІРµРєС‚РѕСЂРѕРІ. РџСЂРѕС‡РёС‚Р°РµРј РµРіРѕ РёР· С„Р°Р№Р»Р°
 
         sscanf(&in_current->task[0] + 4, "%d", &size);
 
-        // выделяем память под векторы
-        vector_1 = calloc(size, sizeof(int)); // функция calloc выделяет память для вектора. size - количество элементов, sizeof(int) - размер одного элемента
-        vector_2 = calloc(size, sizeof(int)); // функция calloc выделяет память для вектора. size - количество элементов, sizeof(int) - размер одного элемента
-        vector_result = calloc(size, sizeof(float)); // функция calloc выделяет память для вектора. size - количество элементов, sizeof(int) - размер одного элемента
-        vector_1_str = calloc(255, sizeof(char)); // функция calloc выделяет память для вектора. size - количество элементов, sizeof(int) - размер одного элемента
-        vector_2_str = calloc(255, sizeof(char)); // функция calloc выделяет память для вектора. size - количество элементов, sizeof(int) - размер одного элемента
-        vector_result_str = calloc(255, sizeof(char)); // функция calloc выделяет память для вектора. size - количество элементов, sizeof(int) - размер одного элемента
+        // РІС‹РґРµР»СЏРµРј РїР°РјСЏС‚СЊ РїРѕРґ РІРµРєС‚РѕСЂС‹
+        vector_1 = calloc(size, sizeof(int)); // С„СѓРЅРєС†РёСЏ calloc РІС‹РґРµР»СЏРµС‚ РїР°РјСЏС‚СЊ РґР»СЏ РІРµРєС‚РѕСЂР°. size - РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ, sizeof(int) - СЂР°Р·РјРµСЂ РѕРґРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+        vector_2 = calloc(size, sizeof(int)); // С„СѓРЅРєС†РёСЏ calloc РІС‹РґРµР»СЏРµС‚ РїР°РјСЏС‚СЊ РґР»СЏ РІРµРєС‚РѕСЂР°. size - РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ, sizeof(int) - СЂР°Р·РјРµСЂ РѕРґРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+        vector_result = calloc(size, sizeof(float)); // С„СѓРЅРєС†РёСЏ calloc РІС‹РґРµР»СЏРµС‚ РїР°РјСЏС‚СЊ РґР»СЏ РІРµРєС‚РѕСЂР°. size - РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ, sizeof(int) - СЂР°Р·РјРµСЂ РѕРґРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+        vector_1_str = calloc(255, sizeof(char)); // С„СѓРЅРєС†РёСЏ calloc РІС‹РґРµР»СЏРµС‚ РїР°РјСЏС‚СЊ РґР»СЏ РІРµРєС‚РѕСЂР°. size - РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ, sizeof(int) - СЂР°Р·РјРµСЂ РѕРґРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+        vector_2_str = calloc(255, sizeof(char)); // С„СѓРЅРєС†РёСЏ calloc РІС‹РґРµР»СЏРµС‚ РїР°РјСЏС‚СЊ РґР»СЏ РІРµРєС‚РѕСЂР°. size - РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ, sizeof(int) - СЂР°Р·РјРµСЂ РѕРґРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+        vector_result_str = calloc(255, sizeof(char)); // С„СѓРЅРєС†РёСЏ calloc РІС‹РґРµР»СЏРµС‚ РїР°РјСЏС‚СЊ РґР»СЏ РІРµРєС‚РѕСЂР°. size - РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ, sizeof(int) - СЂР°Р·РјРµСЂ РѕРґРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 
-        // читаем значения 1 вектора из файла
+        // С‡РёС‚Р°РµРј Р·РЅР°С‡РµРЅРёСЏ 1 РІРµРєС‚РѕСЂР° РёР· С„Р°Р№Р»Р°
         for (i = 0; i < size; i++)
         {
           sscanf(&in_current->task[0] + 6, "%d ", &vector_1[i]);
@@ -446,7 +446,7 @@ int main(void)
         }
         printf("\n");
 
-        // читаем значения 2 вектора из файла
+        // С‡РёС‚Р°РµРј Р·РЅР°С‡РµРЅРёСЏ 2 РІРµРєС‚РѕСЂР° РёР· С„Р°Р№Р»Р°
         for (i = 0; i < size; i++)
         {
           sscanf(&in_current->task[0] + 6 + size + 1, "%d ", &vector_2[i]);
@@ -458,11 +458,11 @@ int main(void)
         }
         printf("\n");
 
-        // оператор switch сравнивает значение внутри (operation_type) с каждым из case. И если оно совпало, то идет в эту ветку
+        // РѕРїРµСЂР°С‚РѕСЂ switch СЃСЂР°РІРЅРёРІР°РµС‚ Р·РЅР°С‡РµРЅРёРµ РІРЅСѓС‚СЂРё (operation_type) СЃ РєР°Р¶РґС‹Рј РёР· case. Р РµСЃР»Рё РѕРЅРѕ СЃРѕРІРїР°Р»Рѕ, С‚Рѕ РёРґРµС‚ РІ СЌС‚Сѓ РІРµС‚РєСѓ
         switch (operation_type)
         {
           case '+':
-            // выполняем сложее векторов
+            // РІС‹РїРѕР»РЅСЏРµРј СЃР»РѕР¶РµРµ РІРµРєС‚РѕСЂРѕРІ
             for (i = 0; i < size; i++)
             {
               vector_result[i] = vector_1[i] + vector_2[i];
@@ -473,7 +473,7 @@ int main(void)
                                          vector_2_str, vector_result_str);
 
             memset(line, 0, sizeof(line));
-            sprintf(line, "результат: (%s) + (%s) = (%s) \n", vector_1_str, vector_2_str,
+            sprintf(line, "СЂРµР·СѓР»СЊС‚Р°С‚: (%s) + (%s) = (%s) \n", vector_1_str, vector_2_str,
                     vector_result_str);
             //add_to_list(out_head, out_current, line);
             LIST *out_node = malloc(sizeof(LIST));
@@ -491,10 +491,10 @@ int main(void)
 
             break;
           case '-':
-            // выполняем вычитание векторов
+            // РІС‹РїРѕР»РЅСЏРµРј РІС‹С‡РёС‚Р°РЅРёРµ РІРµРєС‚РѕСЂРѕРІ
             for (i = 0; i < size; i++)
             {
-              vector_result[i] = vector_1[i] - vector_2[i]; // складываем два числа и пишем в переменную result
+              vector_result[i] = vector_1[i] - vector_2[i]; // СЃРєР»Р°РґС‹РІР°РµРј РґРІР° С‡РёСЃР»Р° Рё РїРёС€РµРј РІ РїРµСЂРµРјРµРЅРЅСѓСЋ result
             }
 
             convert_vector_to_str_vector(size, vector_1, vector_2,
@@ -502,7 +502,7 @@ int main(void)
                                          vector_2_str, vector_result_str);
 
             memset(line, 0, sizeof(line));
-            sprintf(line, "результат: (%s) + (%s) = (%s) \n", vector_1_str, vector_2_str,
+            sprintf(line, "СЂРµР·СѓР»СЊС‚Р°С‚: (%s) + (%s) = (%s) \n", vector_1_str, vector_2_str,
                     vector_result_str);
             out_node->task = strdup(line); //note : strdup is not standard function
             out_node->next = NULL;
@@ -518,7 +518,7 @@ int main(void)
 
             break;
           case '*':
-            // выполняем умножение векторов
+            // РІС‹РїРѕР»РЅСЏРµРј СѓРјРЅРѕР¶РµРЅРёРµ РІРµРєС‚РѕСЂРѕРІ
             for (i = 0; i < size; i++)
             {
               vector_result[i] = vector_1[i] * vector_2[i];
@@ -529,7 +529,7 @@ int main(void)
                                          vector_2_str, vector_result_str);
 
             memset(line, 0, sizeof(line));
-            sprintf(line, "результат: (%s) + (%s) = (%s) \n", vector_1_str, vector_2_str,
+            sprintf(line, "СЂРµР·СѓР»СЊС‚Р°С‚: (%s) + (%s) = (%s) \n", vector_1_str, vector_2_str,
                     vector_result_str);
             //add_to_list(out_head, out_current, line);
             out_node->task = strdup(line); //note : strdup is not standard function
@@ -546,10 +546,10 @@ int main(void)
 
             break;
           case '/':
-            // выполняем деление векторов
+            // РІС‹РїРѕР»РЅСЏРµРј РґРµР»РµРЅРёРµ РІРµРєС‚РѕСЂРѕРІ
             for (i = 0; i < size; i++)
             {
-              vector_result[i] = vector_1[i] / vector_2[i]; // складываем два числа и пишем в переменную result
+              vector_result[i] = vector_1[i] / vector_2[i]; // СЃРєР»Р°РґС‹РІР°РµРј РґРІР° С‡РёСЃР»Р° Рё РїРёС€РµРј РІ РїРµСЂРµРјРµРЅРЅСѓСЋ result
             }
 
             convert_vector_to_str_vector(size, vector_1, vector_2,
@@ -557,7 +557,7 @@ int main(void)
                                          vector_2_str, vector_result_str);
 
             memset(line, 0, sizeof(line));
-            sprintf(line, "результат: (%s) + (%s) = (%s) \n", vector_1_str, vector_2_str,
+            sprintf(line, "СЂРµР·СѓР»СЊС‚Р°С‚: (%s) + (%s) = (%s) \n", vector_1_str, vector_2_str,
                     vector_result_str);
             //add_to_list(out_head, out_current, line);
             out_node->task = strdup(line); //note : strdup is not standard function
@@ -575,10 +575,10 @@ int main(void)
             break;
           default:
             puts(
-                "Ошибка - введен недопустимый символ операции. Исправте файл и попробуйте снова");
+                "РћС€РёР±РєР° - РІРІРµРґРµРЅ РЅРµРґРѕРїСѓСЃС‚РёРјС‹Р№ СЃРёРјРІРѕР» РѕРїРµСЂР°С†РёРё. РСЃРїСЂР°РІС‚Рµ С„Р°Р№Р» Рё РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°");
             break;
         }
-        // free - освобождает память, которую выделили, используя calloc
+        // free - РѕСЃРІРѕР±РѕР¶РґР°РµС‚ РїР°РјСЏС‚СЊ, РєРѕС‚РѕСЂСѓСЋ РІС‹РґРµР»РёР»Рё, РёСЃРїРѕР»СЊР·СѓСЏ calloc
         free(vector_1);
         free(vector_2);
         free(vector_result);
@@ -586,9 +586,9 @@ int main(void)
         free(vector_2_str);
         free(vector_result_str);
 
-        break; // break относится к "case 'v':"
+        break; // break РѕС‚РЅРѕСЃРёС‚СЃСЏ Рє "case 'v':"
       }
-      case 'p': // значит у нас калькулятор с обратной польской нотацией
+      case 'p': // Р·РЅР°С‡РёС‚ Сѓ РЅР°СЃ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ СЃ РѕР±СЂР°С‚РЅРѕР№ РїРѕР»СЊСЃРєРѕР№ РЅРѕС‚Р°С†РёРµР№
       {
         char str[128];
         int tmp, stacksize = 0;
@@ -600,7 +600,7 @@ int main(void)
 
         if (str[strlen(str)-1] == '\n')
         {
-          str[strlen(str)-1]=0; // уберем перенос строки
+          str[strlen(str)-1]=0; // СѓР±РµСЂРµРј РїРµСЂРµРЅРѕСЃ СЃС‚СЂРѕРєРё
         }
 
         printf("calc task: %s\n", str);
@@ -647,7 +647,7 @@ int main(void)
         }
 
         memset(line, 0, sizeof(line));
-        sprintf(line, "результат: %s = %d \n", str, head->data);
+        sprintf(line, "СЂРµР·СѓР»СЊС‚Р°С‚: %s = %d \n", str, head->data);
         //add_to_list(out_head, out_current, line);
         out_node->task = strdup(line); //note : strdup is not standard function
         out_node->next = NULL;
@@ -663,7 +663,7 @@ int main(void)
         break;
       }
       default:
-        puts("Ошибка - неправильно введен тип данных в файле");
+        puts("РћС€РёР±РєР° - РЅРµРїСЂР°РІРёР»СЊРЅРѕ РІРІРµРґРµРЅ С‚РёРї РґР°РЅРЅС‹С… РІ С„Р°Р№Р»Рµ");
         break;
     }
 
@@ -671,7 +671,7 @@ int main(void)
 
   for (out_current = out_head; out_current; out_current = out_current->next)
   {
-    fprintf(out_file, "%s", out_current->task); // пишем значение с пробелом в конце. %.2f означает, что нужно записать тип float, но только 2 знакак после '.'
+    fprintf(out_file, "%s", out_current->task); // РїРёС€РµРј Р·РЅР°С‡РµРЅРёРµ СЃ РїСЂРѕР±РµР»РѕРј РІ РєРѕРЅС†Рµ. %.2f РѕР·РЅР°С‡Р°РµС‚, С‡С‚Рѕ РЅСѓР¶РЅРѕ Р·Р°РїРёСЃР°С‚СЊ С‚РёРї float, РЅРѕ С‚РѕР»СЊРєРѕ 2 Р·РЅР°РєР°Рє РїРѕСЃР»Рµ '.'
   }
   fclose(out_file);
   freeList(in_head);
